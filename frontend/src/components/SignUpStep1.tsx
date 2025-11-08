@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import Logo from "@/assets/logo.png";
 
 interface SignUpStep1Props {
@@ -180,9 +181,9 @@ const SignUpStep1 = ({
         {/* Sign In Link */}
         <p className="text-center mt-5 text-sm text-white/80">
           Already have an account?{" "}
-          <a href="/signin" className="text-white font-medium hover:text-primary transition-colors">
+          <Link to="/signin" className="text-white font-medium hover:text-primary transition-colors">
             Sign in
-          </a>
+          </Link>
         </p>
       </form>
     </div>

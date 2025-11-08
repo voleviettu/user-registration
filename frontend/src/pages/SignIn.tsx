@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -176,9 +177,9 @@ const SignIn = () => {
           {/* Sign Up Link */}
           <p className="text-center mt-5 text-sm text-white/80 max-w-md mx-auto">
             Don't have an account?{" "}
-            <a href="/signup" className="text-white font-medium hover:text-primary transition-colors">
+            <Link to="/signup" className="text-white font-medium hover:text-primary transition-colors">
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </section>
