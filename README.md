@@ -132,19 +132,38 @@ npm run dev
 
 ## 🔑 Environment Variables
 
-### Backend (`backend/.env`)
+### Backend
+
+#### Local Development (`backend/.env`)
 ```env
+NODE_ENV=development
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=postgres
 DB_PASSWORD=your_password
-DB_NAME=user_registration
+DB_NAME=user-registration
+PORT=3000
+FRONTEND_URL=http://localhost:8080
+```
+
+#### Production (Render)
+```env
+NODE_ENV=production
+DATABASE_URL=postgresql://user:password@host:5432/database
+FRONTEND_URL=https://awad-ia03-22127435.vercel.app
 PORT=3000
 ```
 
-### Frontend (`frontend/.env`)
+### Frontend
+
+#### Local Development (`frontend/.env.development`)
 ```env
 VITE_API_URL=http://localhost:3000
+```
+
+#### Production (`frontend/.env.production`)
+```env
+VITE_API_URL=https://user-registration-r1o2.onrender.com
 ```
 
 ## 📝 API Endpoints
@@ -173,3 +192,27 @@ Register a new user
   }
 }
 ```
+
+## 🚀 Deployment
+
+### Backend (Render)
+
+1. Create a PostgreSQL database on Render
+2. Create a new Web Service on Render
+3. Connect to your GitHub repository
+4. Configure:
+   - **Root Directory**: `backend`
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm run start:prod`
+5. Add environment variables (see Production env vars above)
+
+### Frontend (Vercel)
+
+1. Import project from GitHub to Vercel
+2. Configure:
+   - **Root Directory**: `frontend`
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+3. Add environment variable `VITE_API_URL` with your Render backend URL
+4. Deploy!
