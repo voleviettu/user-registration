@@ -24,9 +24,9 @@ import { User } from './user/entities/user.entity';
             type: 'postgres',
             url: databaseUrl,
             entities: [User],
-            synchronize: !isProduction, // false in production for safety
+            synchronize: true, // Set to true temporarily to create tables, then false after first deploy
             ssl: isProduction ? { rejectUnauthorized: false } : false,
-            logging: !isProduction,
+            logging: true,
           };
         }
 
